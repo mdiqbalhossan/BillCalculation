@@ -17,7 +17,7 @@ class CreatePayCookerBillsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('amount');
-            $table->string('date');
+            $table->date('date');
             $table->timestamps();
         });
     }

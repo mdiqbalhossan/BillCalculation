@@ -17,7 +17,7 @@ class CreateCookersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('member_id');
             $table->string('amount');
-            $table->string('date');
+            $table->date('date');
             $table->timestamps();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
         });
