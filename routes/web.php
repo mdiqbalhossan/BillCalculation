@@ -25,9 +25,7 @@ Route::redirect('/', '/dashboard', 301);
 Route::get('/status', [StatusController::class, 'index'])->name('status');
 
 
-Auth::routes([
-    'register' => false
-]);
+Auth::routes();
 
 
 Route::group(['middleware' => 'auth'], function(){
