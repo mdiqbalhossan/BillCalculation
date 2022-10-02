@@ -80,10 +80,10 @@ class DashboardController extends Controller
     public function singleAmount($type){
         if($type == "cooker"){
             $cooker = Cooker::Date()->first();
-            return $cooker->amount;
+            return isset($cooker->amount) ? $cooker->amount : 0;
         }else if($type == "utility"){
             $utility = Utility::Date()->first();
-            return $utility->amount;
+            return isset($utility->amount) ? $utility->amount : 0;
         }
     }
 
