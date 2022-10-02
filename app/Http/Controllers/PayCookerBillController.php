@@ -14,7 +14,8 @@ class PayCookerBillController extends Controller
      */
     public function index()
     {
-        $total = PayCookerBill::sum('amount');
+        $total = PayCookerBill::Date()->get();
+        $total = isset($total) ? $total->sum('amount') : 0;
         return view('pay_cooker',compact('total'));
     }
 

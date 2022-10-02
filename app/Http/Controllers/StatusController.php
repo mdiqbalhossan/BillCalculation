@@ -12,10 +12,13 @@ use Illuminate\Http\Request;
 class StatusController extends Controller
 {
     public function index(){
-        $cookerTotal = Cooker::Date()->sum('amount');
-        $givenCooker = PayCookerBill::Date()->sum('amount');
+        $cookerTotal = Cooker::Date()->get();
+        $cookerTotal = isset($cookerTotal) ? $cookerTotal->sum('amount') : 0;
+        $givenCooker = PayCookerBill::Date()->get();
+        $givenCooker = isset($givenCooker) ? $givenCooker->sum('amount') : 0;
 
-        $utilityTotal = Utility::Date()->sum('amount');
+        $utilityTotal = Utility::Date()->get();
+        $utilityTotal = isset($utilityTotal) ? $utilityTotal->sum('amount') : 0;
 
         $total = [
             'cooker' => [

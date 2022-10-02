@@ -16,7 +16,8 @@ class UtilityController extends Controller
     public function index()
     {
         $members = Member::where('status',1)->get();
-        $total = Utility::sum('amount');
+        $total = Utility::Date()->get();
+        $total = isset($total) ? $total->sum('amount') : 0;
         return view('utility',compact('members','total'));
     }
 

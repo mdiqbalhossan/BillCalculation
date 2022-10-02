@@ -16,7 +16,8 @@ class CookerController extends Controller
     public function index()
     {
         $members = Member::where('status',1)->get();
-        $total = Cooker::sum('amount');
+        $total = Cooker::get();
+        $total = isset($total) ? $total->sum('amount') : 0;
         return view('cook',compact('members','total'));
     }
 
