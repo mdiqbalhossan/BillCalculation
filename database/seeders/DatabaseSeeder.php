@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
-use Faker\Factory;
-
+use Database\Seeders\SettingSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Setting::factory()->count(1)->create();
+        $this->call([
+            SettingSeeder::class
+        ]);
     }
 }
