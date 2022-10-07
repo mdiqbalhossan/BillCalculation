@@ -270,10 +270,10 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($cookerDue as $value)
+                                @foreach ($cookerDue as $v)
                                 <tr>
-                                    <td>{{ $value->room_no }}</td>
-                                    <td>{{ $value->name }}</td>
+                                    <td>{{ $v->room_no }}</td>
+                                    <td>{{ $v->name }}</td>
                                     <td>{{ $singleBill['cook'] }}</td>
                                 </tr>
                                 @endforeach
