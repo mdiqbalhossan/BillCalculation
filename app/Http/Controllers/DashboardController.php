@@ -49,14 +49,14 @@ class DashboardController extends Controller
 
     public function dueBill($type){
         if($type == "cooker"){
-            $cooker = Cooker::all('member_id');
+            $cooker = Cooker::Date()->all('member_id');
             $item = [];
             foreach($cooker as $v){
                 $item[] = array_push($item,$v->member_id);
             }
             return Member::whereNotIn('id',$item)->get();
         }else if($type == "utility"){
-            $utility = Utility::all('member_id');
+            $utility = Utility::Date()->all('member_id');
             $item = [];
             foreach($utility as $v){
                 $item[] = array_push($item,$v->member_id);
