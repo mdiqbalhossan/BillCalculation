@@ -164,7 +164,7 @@
                 e.preventDefault();
                 let id = $(this).attr('id');
                 let csrf = '{{ csrf_token() }}';
-                let url = '/bill/' + id;
+                let url = '/pay/cooker/bill/' + id;
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
