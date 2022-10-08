@@ -60,6 +60,12 @@ class MemberController extends Controller
                                 $output .= '<a href="#" class="ms-1 btn btn-dark btn-sm activeStatus" id="'.$item->id.'"><i class="fa fa-check-circle"
                                 aria-hidden="true"></i></a>';
                             }
+                            $output .= '<li class="list-group-item">
+                              <label class="switch_'.$item->id.'">
+          <input type="checkbox" class="danger">
+          <span class="slider round"></span>
+        </label>
+                    </li>';
                                 
                             $output .= '</td>
                         </tr>';
