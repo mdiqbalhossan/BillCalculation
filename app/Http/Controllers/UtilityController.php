@@ -137,6 +137,21 @@ class UtilityController extends Controller
         
     }
 
+    public function MemberUpdate(Request $request)
+    {
+        $count = count($request->u_member_id);
+        if ($count != null){
+            for($i=0; $i<$count; $i++){
+                Member::updateOrCreate(['id' => $request->u_member_id], [
+                    'is_utility' => 1
+                ]);                
+            }
+        } 
+    
+        return response()->json(['status' => 200]); 
+        
+    }
+
     /**
      * Display the specified resource.
      *

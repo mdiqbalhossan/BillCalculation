@@ -278,6 +278,13 @@
         });
         }
 
+        // Reset Function
+        function ureset(){
+        $('#u_submit_btn').text("Add Member");
+        $('#u_data_form').trigger("reset");
+        $('.modal-title').html("Add Utility");
+        $('#u_member_id').val('').trigger('change');
+        }
         // Add Member Button
         $("#add_member_btn").click(function(e){
         e.preventDefault();
@@ -288,5 +295,41 @@
         $('#u_member_id').val('').trigger('change');
         $("#add_member_form_modal").modal('show');
         })
+
+        // Save Data
+        $('#u_submit_btn').click(function (e) {
+        e.preventDefault();
+        $(this).html('Sending..');
+        
+        $.ajax({
+        data: $('#u_data_form').serialize(),
+        url: "{{ route('utility.update.member') }}",
+        type: "POST",
+        dataType: 'json',
+        success: function (response) {
+        if (response.status == 200) {
+        $.toast({
+        type: 'success',
+        title: 'Success',
+        subtitle: 'Utility Member',
+        content: 'Member Added For Utility Succesfully',
+        delay: 5000,
+        });
+        fetchUData();
+        ureset();
+        }
+        },
+        error: function (data) {
+        console.log('Error:', data);
+        $.toast({
+        type: 'error',
+        title: 'Error',
+        subtitle: 'Utility',
+        content: 'Something Went Wrong. Please try again',
+        delay: 5000,
+        });
+        }
+        });
+        });
 </script>
 @endpush
