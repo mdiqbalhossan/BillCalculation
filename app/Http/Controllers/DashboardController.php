@@ -54,7 +54,8 @@ class DashboardController extends Controller
             foreach($cooker as $v){
                 $item[] = array_push($item,$v->member_id);
             }
-            return Member::whereNotIn('id',$item)->get();
+            // return Member::whereNotIn('id',$item)->get();
+            dd($item);
         }else if($type == "utility"){
             $utility = Utility::Date()->get('member_id');
             $item = [];
