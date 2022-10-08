@@ -64,6 +64,18 @@
     .slider.round:before {
         border-radius: 50%;
     }
+
+    .list-group-item:last-child {
+        display: inline !important;
+    }
+
+    .list-group-item {
+        position: relative !important;
+        display: block !important;
+        padding: 0.5rem 1rem !importatn;
+        color: #212529 !importatn;
+        text-decoration: none !important;
+    }
 </style>
 @endpush
 @section('content')

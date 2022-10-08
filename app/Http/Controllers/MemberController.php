@@ -61,7 +61,7 @@ class MemberController extends Controller
                                 aria-hidden="true"></i></a>';
                             }
                             $output .= '<li class="list-group-item">
-                              <label class="switch_'.$item->id.'">
+                              <label class="switch">
           <input type="checkbox" class="danger">
           <span class="slider round"></span>
         </label>
