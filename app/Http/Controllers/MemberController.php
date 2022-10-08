@@ -61,8 +61,8 @@ class MemberController extends Controller
                                 aria-hidden="true"></i></a>';
                             }
                             $output .= '<div class="material-switch pull-right">
-                            <input id="'.$item->id.'" name="utility_status" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
-                            <label for="'.$item->id.'" class="text-danger"></label>
+                            <input id="us_'.$item->id.'" name="utility_status" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
+                            <label for="us_'.$item->id.'" class="text-danger"></label>
                         </div>';
                                 
                             $output .= '</td>
