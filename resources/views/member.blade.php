@@ -318,7 +318,7 @@
                 //     console.log(response);
                 // }
                 // });
-                console.log(my_id)
+                console.log(my_id[1])
             });
         });
 </script>
