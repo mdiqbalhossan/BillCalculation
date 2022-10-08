@@ -290,6 +290,29 @@
             }
             });
             });
+
+            // Utility Status Update
+            $(".utility_status").change(function (e) { 
+                e.preventDefault();
+                let id = $(this).attr("id");
+                const my_id = id.split("_");
+                $.ajax({
+                type: "GET",
+                url: 'member/utility/'+my_id[1],
+                success: function (response) {
+                if(response.status == 200){
+                $.toast({
+                type: 'success',
+                title: 'Success',
+                subtitle: 'Member Status',
+                content: 'Member Utility Status Update Succesfully',
+                delay: 5000,
+                });
+                fetchData();
+                }
+                }
+                });
+            });
         });
 </script>
 @endpush

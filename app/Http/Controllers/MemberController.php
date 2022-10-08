@@ -61,7 +61,7 @@ class MemberController extends Controller
                                 aria-hidden="true"></i></a>';
                             }
                             $output .= '<div class="material-switch pull-right">
-                            <input id="us_'.$item->id.'" name="utility_status" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
+                            <input class="utility_status" id="us_'.$item->id.'" name="utility_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
                             <label for="us_'.$item->id.'" class="text-danger"></label>
                         </div>';
                                 
@@ -164,6 +164,15 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member->update([
             'status' => 0
+        ]);
+        return response()->json(['status' => 200]);
+    }
+
+    public function utilityUpdate($id)
+    {
+        $member = Member::find($id);
+        $member->update([
+            'isUtility' => 1
         ]);
         return response()->json(['status' => 200]);
     }
