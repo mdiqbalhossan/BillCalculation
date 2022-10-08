@@ -22,8 +22,6 @@
                     }}</span>
                 <a href="#" class="btn btn-success btn-sm" id="add_btn" style="float: right;"><i
                         class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                <a href="#" class="btn btn-primary btn-sm" id="add_member_btn" title="Add Member For Utility"
-                    style="float: right;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
             </div>
             <div class="card-body" id="showData">
                 <h4 class="text-success text-center">Loading...</h4>
@@ -68,47 +66,6 @@
     </div>
 </div>
 {{-- Add or update modal --}}
-{{-- Add Member Modal --}}
-<div class="modal fade" id="add_member_form_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form id="u_data_form">
-                <input type="hidden" name="id" id="u_id">
-                <div class="modal-body">
-                    <label for="member_id" class="form-label">Members</label>
-                    <select class="form-control js-example-basic-single" name="member_id[]" id="u_member_id"
-                        multiple="multiple">
-                        @foreach ($members as $member)
-                        <option value="{{ $member->id }}">{{ $member->room_no }} - {{ $member->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="u_submit_btn">Save changes</button>
-                </div>
-            </form>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Member For Only Utility</h3>
-                        </div>
-                        <div class="card-body" id="show_member">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- Add Member Modal --}}
 @endsection
 
 @push('js')
@@ -260,76 +217,5 @@
             });
         });
 
-
-        /***Add Member Ajax Request***/
-
-        fetchUData();
-        function fetchUData(){
-        $.ajax({
-        url: '{{ route('utility.fetch.member') }}',
-        method: 'get',
-        success: function(response) {
-        $("#show_member").html(response);
-        $('#example1').DataTable();
-        },
-        error: function(response){
-        console.log(response);
-        }
-        });
-        }
-
-        // Reset Function
-        function ureset(){
-        $('#u_submit_btn').text("Add Member");
-        $('#u_data_form').trigger("reset");
-        $('.modal-title').html("Add Utility");
-        $('#u_member_id').val('').trigger('change');
-        }
-        // Add Member Button
-        $("#add_member_btn").click(function(e){
-        e.preventDefault();
-        $('#u_submit_btn').text("Add Member");
-        $('#u_id').val('');
-        $('#u_data_form').trigger("reset");
-        $('.modal-title').html("Add Member");
-        $('#u_member_id').val('').trigger('change');
-        $("#add_member_form_modal").modal('show');
-        })
-
-        // Save Data
-        $('#u_submit_btn').click(function (e) {
-        e.preventDefault();
-        $(this).html('Sending..');
-        
-        $.ajax({
-        data: $('#u_data_form').serialize(),
-        url: "{{ route('utility.update.member') }}",
-        type: "POST",
-        dataType: 'json',
-        success: function (response) {
-        if (response.status == 200) {
-        $.toast({
-        type: 'success',
-        title: 'Success',
-        subtitle: 'Utility Member',
-        content: 'Member Added For Utility Succesfully',
-        delay: 5000,
-        });
-        fetchUData();
-        ureset();
-        }
-        },
-        error: function (data) {
-        console.log('Error:', data);
-        $.toast({
-        type: 'error',
-        title: 'Error',
-        subtitle: 'Utility',
-        content: 'Something Went Wrong. Please try again',
-        delay: 5000,
-        });
-        }
-        });
-        });
 </script>
 @endpush

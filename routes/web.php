@@ -35,9 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/member/activate/{id}',[MemberController::class, 'activate']);
     Route::get('/member/deactivate/{id}',[MemberController::class, 'deactivate']);
     Route::resource('utility', UtilityController::class);
-    Route::post('/utility/member/update',[UtilityController::class, 'MemberUpdate'])->name('utility.update.member');
     Route::get('/fetch/utility',[UtilityController::class, 'fetch'])->name('utility.fetch');
-    Route::get('/fetch/utility/member',[UtilityController::class, 'fetchMember'])->name('utility.fetch.member');
     Route::resource('/cooker', CookerController::class);
     Route::get('/fetch/cook',[CookerController::class, 'fetch'])->name('cooker.fetch');
     Route::resource('pay/cooker/bill', PayCookerBillController::class);

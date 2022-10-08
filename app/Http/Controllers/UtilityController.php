@@ -69,39 +69,6 @@ class UtilityController extends Controller
         echo $output;
     }
 
-    public function fetchMember(){
-        $members = Member::where('isUtility',1)->get();
-        $output = '';
-        if($members->count() > 0){
-            $output .= '<table id="example1" class="table table-striped table-bordered table-responsive" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th width="10">Room No</th>
-                            <th width="30">Name</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th width="10">Room No</th>
-                            <th width="30">Name</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>';
-
-            foreach($members as $item){
-                $output .= '<tr>
-                            <td>'.$item->member->room_no.'</td>
-                            <td>'.$item->member->name.'</td>
-                        </tr>';
-            }
-
-            $output .= '</tbody>
-                </table>';
-        }else{
-            $output .= '<h3 class="text-center text-danger">No Data Found</h3>';
-        }
-        echo $output;
-    }
 
 
     /**
@@ -137,20 +104,7 @@ class UtilityController extends Controller
         
     }
 
-    public function MemberUpdate(Request $request)
-    {
-        $count = count($request->member_id);
-        if ($count != null){
-            for($i=0; $i<$count; $i++){
-                Member::updateOrCreate(['id' => $request->member_id], [
-                    'is_utility' => 1
-                ]);                
-            }
-        } 
     
-        return response()->json(['status' => 200]); 
-        
-    }
 
     /**
      * Display the specified resource.
