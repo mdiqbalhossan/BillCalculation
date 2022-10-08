@@ -76,11 +76,11 @@
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="data_form">
-                <input type="hidden" name="id" id="id">
+            <form id="u_data_form">
+                <input type="hidden" name="id" id="u_id">
                 <div class="modal-body">
                     <label for="member_id" class="form-label">Members</label>
-                    <select class="form-control add_member_select" name="member_id[]" id="member_id"
+                    <select class="form-control js-example-basic-single" name="member_id[]" id="u_member_id"
                         multiple="multiple">
                         @foreach ($members as $member)
                         <option value="{{ $member->id }}">{{ $member->room_no }} - {{ $member->name }}</option>
@@ -106,7 +106,7 @@
             placeholder: 'Select an option',
             theme: 'bootstrap-5',
         });
-        $('.add_member_select').select2({
+        $('.js-example-basic-single').select2({
         placeholder: 'Select an option',
         theme: 'bootstrap-5',
         });
@@ -253,10 +253,10 @@
         $("#add_member_btn").click(function(e){
         e.preventDefault();
         $('#submit_btn').text("Add Member");
-        $('#id').val('');
-        $('#data_form').trigger("reset");
+        $('#u_id').val('');
+        $('#u_data_form').trigger("reset");
         $('.modal-title').html("Add Member");
-        $('#member_id').val('').trigger('change');
+        $('#u_member_id').val('').trigger('change');
         $("#add_member_form_modal").modal('show');
         })
 </script>
