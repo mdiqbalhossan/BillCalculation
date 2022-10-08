@@ -23,7 +23,7 @@
                 <a href="#" class="btn btn-success btn-sm" id="add_btn" style="float: right;"><i
                         class="fa fa-plus-circle" aria-hidden="true"></i></a>
                 <a href="#" class="btn btn-primary btn-sm" id="add_member_btn" title="Add Member For Utility"
-                    tyle="float: right;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                    style="float: right;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
             </div>
             <div class="card-body" id="showData">
                 <h4 class="text-success text-center">Loading...</h4>
@@ -89,9 +89,18 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submit_btn">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="u_submit_btn">Save changes</button>
                 </div>
             </form>
+            <hr>
+            <div class="card">
+                <div class="card-title">
+                    <h3>Member For Only Utility</h3>
+                </div>
+                <div class="card-body" id="show_member">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -249,10 +258,28 @@
 
 
         /***Add Member Ajax Request***/
+
+        fetchUData();
+        function fetchUData(){
+        $.ajax({
+        url: '{{ route('utility.fetch.member') }}',
+        method: 'get',
+        success: function(response) {
+        $("#show_member").html(response);
+        let dataTable = new DataTable("#datatablesSimple");
+        $('#example').DataTable();
+        dataTable.init();
+        },
+        error: function(response){
+        console.log(response);
+        }
+        });
+        }
+
         // Add Member Button
         $("#add_member_btn").click(function(e){
         e.preventDefault();
-        $('#submit_btn').text("Add Member");
+        $('#u_submit_btn').text("Add Member");
         $('#u_id').val('');
         $('#u_data_form').trigger("reset");
         $('.modal-title').html("Add Member");

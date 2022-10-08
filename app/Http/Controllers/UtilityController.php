@@ -69,6 +69,40 @@ class UtilityController extends Controller
         echo $output;
     }
 
+    public function fetchMember(){
+        $members = Member::where('isUtility',1)->get();
+        $output = '';
+        if($members->count() > 0){
+            $output .= '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th width="10">Room No</th>
+                            <th width="30">Name</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th width="10">Room No</th>
+                            <th width="30">Name</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>';
+
+            foreach($members as $item){
+                $output .= '<tr>
+                            <td>'.$item->member->room_no.'</td>
+                            <td>'.$item->member->name.'</td>
+                        </tr>';
+            }
+
+            $output .= '</tbody>
+                </table>';
+        }else{
+            $output .= '<h3 class="text-center text-danger">No Data Found</h3>';
+        }
+        echo $output;
+    }
+
 
     /**
      * Show the form for creating a new resource.
