@@ -142,7 +142,7 @@ class UtilityController extends Controller
         $count = count($request->u_member_id);
         if ($count != null){
             for($i=0; $i<$count; $i++){
-                Member::updateOrCreate(['id' => $request->u_member_id], [
+                Member::updateOrCreate(['id' => $request->member_id], [
                     'is_utility' => 1
                 ]);                
             }
