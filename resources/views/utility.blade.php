@@ -22,6 +22,8 @@
                     }}</span>
                 <a href="#" class="btn btn-success btn-sm" id="add_btn" style="float: right;"><i
                         class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                <a href="#" class="btn btn-primary btn-sm" id="add_member_btn" title="Add Member For Utility"
+                    tyle="float: right;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
             </div>
             <div class="card-body" id="showData">
                 <h4 class="text-success text-center">Loading...</h4>
@@ -66,6 +68,34 @@
     </div>
 </div>
 {{-- Add or update modal --}}
+{{-- Add Member Modal --}}
+<div class="modal fade" id="add_member_form_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="data_form">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-body">
+                    <label for="member_id" class="form-label">Members</label>
+                    <select class="form-control js-example-basic-single" name="member_id[]" id="member_id"
+                        multiple="multiple">
+                        @foreach ($members as $member)
+                        <option value="{{ $member->id }}">{{ $member->room_no }} - {{ $member->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submit_btn">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- Add Member Modal --}}
 @endsection
 
 @push('js')
@@ -110,6 +140,7 @@
                 $('#member_id').val('').trigger('change');
                 $("#form_modal").modal('show');
             })
+            
     
             // Reset Form
             function reset(){
@@ -211,5 +242,18 @@
                 })
             });
         });
+
+
+        /***Add Member Ajax Request***/
+        // Add Member Button
+        $("#add_member_btn").click(function(e){
+        e.preventDefault();
+        $('#submit_btn').text("Add Member");
+        $('#id').val('');
+        $('#data_form').trigger("reset");
+        $('.modal-title').html("Add Member");
+        $('#member_id').val('').trigger('change');
+        $("#add_member_form_modal").modal('show');
+        })
 </script>
 @endpush
