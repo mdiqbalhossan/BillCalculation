@@ -73,7 +73,7 @@ class UtilityController extends Controller
         $members = Member::where('isUtility',1)->get();
         $output = '';
         if($members->count() > 0){
-            $output .= '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+            $output .= '<table id="example1" class="table table-striped table-bordered table-responsive" style="width:100%">
                     <thead>
                         <tr>
                             <th width="10">Room No</th>

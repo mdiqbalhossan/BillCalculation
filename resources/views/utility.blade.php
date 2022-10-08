@@ -93,12 +93,16 @@
                 </div>
             </form>
             <hr>
-            <div class="card">
-                <div class="card-title">
-                    <h3>Member For Only Utility</h3>
-                </div>
-                <div class="card-body" id="show_member">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Member For Only Utility</h3>
+                        </div>
+                        <div class="card-body" id="show_member">
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,9 +270,7 @@
         method: 'get',
         success: function(response) {
         $("#show_member").html(response);
-        let dataTable = new DataTable("#datatablesSimple");
-        $('#example').DataTable();
-        dataTable.init();
+        $('#example1').DataTable();
         },
         error: function(response){
         console.log(response);
