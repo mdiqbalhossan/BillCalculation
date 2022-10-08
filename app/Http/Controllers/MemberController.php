@@ -60,10 +60,10 @@ class MemberController extends Controller
                                 $output .= '<a href="#" class="ms-1 btn btn-dark btn-sm activeStatus" id="'.$item->id.'"><i class="fa fa-check-circle"
                                 aria-hidden="true"></i></a>';
                             }
-                            $output .= '<label class="switch">
-          <input type="checkbox" class="danger">
-          <span class="slider round"></span>
-        </label>';
+                            $output .= '<div class="material-switch pull-right">
+                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+                        </div>';
                                 
                             $output .= '</td>
                         </tr>';

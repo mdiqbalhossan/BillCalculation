@@ -3,78 +3,52 @@
 @push('css')
 <style>
     /* The switch - the box around the slider */
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-        float: right;
-    }
-
-    /* Hide default HTML checkbox */
-    .switch input {
+    .material-switch>input[type="checkbox"] {
         display: none;
     }
 
-    /* The slider */
-    .slider {
-        position: absolute;
+    .material-switch>label {
         cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
+        height: 0px;
+        position: relative;
+        width: 40px;
     }
 
-    .slider:before {
+    .material-switch>label::before {
+        background: rgb(0, 0, 0);
+        box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        content: '';
+        height: 16px;
+        margin-top: -8px;
         position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+        opacity: 0.3;
+        transition: all 0.4s ease-in-out;
+        width: 40px;
     }
 
-
-    input.danger:checked+.slider {
-        background-color: #f44336;
+    .material-switch>label::after {
+        background: rgb(255, 255, 255);
+        border-radius: 16px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        content: '';
+        height: 24px;
+        left: -4px;
+        margin-top: -8px;
+        position: absolute;
+        top: -4px;
+        transition: all 0.3s ease-in-out;
+        width: 24px;
     }
 
-    input:focus+.slider {
-        box-shadow: 0 0 1px #2196F3;
+    .material-switch>input[type="checkbox"]:checked+label::before {
+        background: inherit;
+        opacity: 0.5;
     }
 
-    input:checked+.slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-        border-radius: 34px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
-    }
-
-    .list-group-item:last-child {
-        display: inline !important;
-    }
-
-    .list-group-item {
-        position: relative !important;
-        display: block !important;
-        padding: 0.5rem 1rem !importatn;
-        color: #212529 !importatn;
-        text-decoration: none !important;
+    .material-switch>input[type="checkbox"]:checked+label::after {
+        background: inherit;
+        left: 20px;
     }
 </style>
 @endpush
