@@ -61,7 +61,7 @@ class MemberController extends Controller
                                 aria-hidden="true"></i></a>';
                             }
                             $output .= '<div class="material-switch pull-right">
-                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                            <input class="utility_status" id="'.$item->id.'" name="utility_status" value="'.$item->id.'" type="checkbox"/>
                             <label for="someSwitchOptionDanger" class="text-danger"></label>
                         </div>';
                                 

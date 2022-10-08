@@ -52,7 +52,7 @@
     }
 
     .material-switch>input[type="checkbox"]:checked+label::after {
-        background: inherit;
+        background: #f27474;
         left: 20px;
     }
 </style>
