@@ -265,6 +265,9 @@
             });
             fetchData();
             }
+            },
+            error: function(response){
+                console.log(response);
             }
             });
             });
@@ -310,6 +313,9 @@
                 });
                 fetchData();
                 }
+                },
+                error: function(response){
+                console.log(response);
                 }
                 });
             });
