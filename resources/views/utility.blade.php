@@ -80,7 +80,7 @@
                 <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <label for="member_id" class="form-label">Members</label>
-                    <select class="form-control js-example-basic-single" name="member_id[]" id="member_id"
+                    <select class="form-control add_member_select" name="member_id[]" id="member_id"
                         multiple="multiple">
                         @foreach ($members as $member)
                         <option value="{{ $member->id }}">{{ $member->room_no }} - {{ $member->name }}</option>
@@ -105,6 +105,10 @@
         $('.js-example-basic-single').select2({
             placeholder: 'Select an option',
             theme: 'bootstrap-5',
+        });
+        $('.add_member_select').select2({
+        placeholder: 'Select an option',
+        theme: 'bootstrap-5',
         });
             // Csrf Token
             $.ajaxSetup({
