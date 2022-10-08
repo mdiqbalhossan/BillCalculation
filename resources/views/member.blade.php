@@ -3,6 +3,11 @@
 @push('css')
 <style>
     /* The switch - the box around the slider */
+    .material-switch {
+        display: inline !important;
+        margin-left: 10px;
+    }
+
     .material-switch>input[type="checkbox"] {
         display: none;
     }

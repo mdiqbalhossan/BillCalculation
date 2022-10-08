@@ -62,7 +62,7 @@ class MemberController extends Controller
                             }
                             $output .= '<div class="material-switch pull-right">
                             <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
-                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+                            <label for="someSwitchOptionDanger" class="text-danger"></label>
                         </div>';
                                 
                             $output .= '</td>
