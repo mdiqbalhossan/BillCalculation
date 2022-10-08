@@ -52,7 +52,7 @@ class DashboardController extends Controller
             $cooker = Cooker::Date()->get('member_id');
             $item = [];
             foreach($cooker as $v){
-                $item[] = array_push($item,$v->member_id);
+                array_push($item,$v->member_id);
             }
             // return Member::whereNotIn('id',$item)->get();
             dd($item);
