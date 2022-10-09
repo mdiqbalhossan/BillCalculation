@@ -56,17 +56,88 @@
         left: 20px;
     }
 
-    .toggle.ios,
-    .toggle-on.ios,
-    .toggle-off.ios {
-        border-radius: 20px;
+    .switchToggle input[type=checkbox] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+        position: absolute;
     }
 
-    .toggle.ios .toggle-handle {
-        border-radius: 20px;
+    .switchToggle label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 70px;
+        max-width: 70px;
+        height: 30px;
+        background:
+            #d1d1d1;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+    }
+
+    .switchToggle label:after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        background:
+            #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+
+    .switchToggle input:checked+label,
+    .switchToggle input:checked+input+label {
+        background: #3e98d3;
+    }
+
+    .switchToggle input+label:before,
+    .switchToggle input+input+label:before {
+        content: 'No';
+        position: absolute;
+        top:
+            5px;
+        left: 35px;
+        width: 26px;
+        height: 26px;
+        border-radius: 90px;
+        transition: 0.3s;
+        text-indent: 0;
+        color: #fff;
+    }
+
+    .switchToggle input:checked+label:before,
+    .switchToggle input:checked+input+label:before {
+        content: 'Yes';
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        width: 26px;
+        height: 26px;
+        border-radius: 90px;
+        transition: 0.3s;
+        text-indent:
+            0;
+        color: #fff;
+    }
+
+    .switchToggle input:checked+label:after,
+    .switchToggle input:checked+input+label:after {
+        left: calc(100% - 2px);
+        transform: translateX(-100%);
+    }
+
+    .switchToggle label:active:after {
+        width: 60px;
+    }
+
+    .toggle-switchArea {
+        margin: 10px 0 10px 0;
     }
 </style>
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endpush
 @section('content')
 <main>
@@ -125,7 +196,6 @@
 @endsection
 
 @push('js')
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.toggle').bootstrapToggle();
