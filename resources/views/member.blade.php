@@ -198,7 +198,6 @@
 @push('js')
 <script>
     $(document).ready(function() {
-        $('.toggle').bootstrapToggle();
             // Csrf Token
             $.ajaxSetup({
                 headers: {
