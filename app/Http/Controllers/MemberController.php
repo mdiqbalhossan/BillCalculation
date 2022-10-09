@@ -64,13 +64,11 @@ class MemberController extends Controller
                             <div class="material-switch pull-right">
                             <input class="utility_status" id="us_'.$item->id.'" name="utility_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
                             <label for="us_'.$item->id.'" class="text-danger"></label>
+                        </div>
+                        <div class="material-switch">
+                            <input class="adjust_status" id="as_'.$item->id.'" name="adjust_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
+                            <label for="as_'.$item->id.'" class="text-danger"></label>
                         </div></form>';
-                        $output .= '<form action="" method="GET" style="display:inline;">
-                        <div class="switchToggle">
-    <input type="checkbox" id="switch">
-    <label for="switch">Toggle</label>
-</div>
-                        </form>';
                                 
                             $output .= '</td>
                         </tr>';
