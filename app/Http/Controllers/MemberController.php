@@ -65,6 +65,7 @@ class MemberController extends Controller
                             <input class="utility_status" id="us_'.$item->id.'" name="utility_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
                             <label for="us_'.$item->id.'" class="text-danger"></label>
                         </div></form>';
+                        $output .= '<form action="" method="GET" style="display:inline;"><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="mini"></form>';
                                 
                             $output .= '</td>
                         </tr>';

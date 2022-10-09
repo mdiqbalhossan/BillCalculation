@@ -55,7 +55,18 @@
         background: #f27474;
         left: 20px;
     }
+
+    .toggle.ios,
+    .toggle-on.ios,
+    .toggle-off.ios {
+        border-radius: 20px;
+    }
+
+    .toggle.ios .toggle-handle {
+        border-radius: 20px;
+    }
 </style>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endpush
 @section('content')
 <main>
@@ -114,6 +125,7 @@
 @endsection
 
 @push('js')
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
     $(document).ready(function() {
             // Csrf Token
