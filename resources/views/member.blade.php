@@ -295,7 +295,7 @@
             });
 
             // Utility Status Update
-            $(".utility_status").change(function (e) { 
+            $("body").on('change','.utility_status',function (e) { 
                 e.preventDefault();
                 let id = $(this).attr("id");
                 const my_id = id.split("_");

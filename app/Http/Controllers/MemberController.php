@@ -60,7 +60,7 @@ class MemberController extends Controller
                                 $output .= '<a href="#" class="ms-1 btn btn-dark btn-sm activeStatus" id="'.$item->id.'"><i class="fa fa-check-circle"
                                 aria-hidden="true"></i></a>';
                             }
-                            $output .= '<form action="" method="GET">
+                            $output .= '<form action="" method="GET" style="display:inline;">
                             <div class="material-switch pull-right">
                             <input class="utility_status" id="us_'.$item->id.'" name="utility_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
                             <label for="us_'.$item->id.'" class="text-danger"></label>
