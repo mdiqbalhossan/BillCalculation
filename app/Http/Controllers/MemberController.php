@@ -24,20 +24,20 @@ class MemberController extends Controller
             $output .= '<table id="example" class="table table-sm table-striped table-bordered table-responsive" style="width:100%">
                     <thead>
                         <tr>
-                            <th width="10">Room No</th>
-                            <th width="30">Name</th>
-                            <th width="20">Phone</th>
-                            <th width="10">Status</th>
-                            <th width="30">Action</th>
+                            <th style="width:80px;text-align:center;">Room No</th>
+                            <th style="width:170px;text-align:center;">Name</th>
+                            <th style="width:180px;text-align:center;">Phone</th>
+                            <th style="width:80px;text-align:center;">Status</th>
+                            <th style="text-align:center;">Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th width="10">Room No</th>
-                            <th width="30">Name</th>
-                            <th width="20">Phone</th>
-                            <th width="10">Status</th>
-                            <th width="30">Action</th>
+                            <th style="width:80px;text-align:center;">Room No</th>
+                            <th style="width:170px;text-align:center;">Name</th>
+                            <th style="width:180px;text-align:center;">Phone</th>
+                            <th style="width:80px;text-align:center;">Status</th>
+                            <th style="text-align:center;">Action</th>
                         </tr>
                     </tfoot>
                     <tbody>';
@@ -66,7 +66,7 @@ class MemberController extends Controller
                             <label for="us_'.$item->id.'" class="text-danger"></label>
                         </div>
                         <div class="material-switch">
-                            <input class="adjust_status" id="as_'.$item->id.'" name="adjust_status" value="1" '.($item->isUtility == 1 ? 'checked' : '').' type="checkbox"/>
+                            <input class="adjust_status" id="as_'.$item->id.'" name="adjust_status" value="1" '.($item->isAdjust == 1 ? 'checked' : '').' type="checkbox"/>
                             <label for="as_'.$item->id.'" class="text-danger"></label>
                         </div></form>';
                                 
