@@ -247,7 +247,7 @@
                     <div class="card-body">
                         <div class="row d-flex justify-content-center mb-2">
                             <div class="col">
-                                <p class="text-danger mb-0 fw-bold">Adjust Fund</p>
+                                <p class="text-dark mb-0 fw-bold">Adjust Fund</p>
                                 <h3 class="my-1 font-20 fw-bold">৳ {{ $total['utility']['adjust'] }}</h3>
                             </div>
                             <!--end col-->
@@ -363,6 +363,41 @@
                             </tfoot>
                             <tbody>
                                 @foreach ($utilityDue as $value)
+                                <tr>
+                                    <td>{{ $value->room_no }}</td>
+                                    <td>{{ $value->name }}</td>
+                                    <td>{{ $singleBill['utility'] }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Adjusted Member
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-sm table-striped table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Room No</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Room No</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach ($adjustMember as $value)
                                 <tr>
                                     <td>{{ $value->room_no }}</td>
                                     <td>{{ $value->name }}</td>

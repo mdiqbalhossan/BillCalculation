@@ -44,7 +44,8 @@ class DashboardController extends Controller
             'cook' => $this->singleAmount("cooker"),
             'utility' => $this->singleAmount("utility"),
         ];
-        return view('dashboard',compact('total', 'cookerDue','utilityDue','setting','payBills','singleBill'));
+        $adjustMember = Member::where('isAdjust',1)->orderBy('room_no','asc')->get();
+        return view('dashboard',compact('total', 'cookerDue','utilityDue','setting','payBills','singleBill','adjustMember'));
         // dd($cookerDue);
     }
 
