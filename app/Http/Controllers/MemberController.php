@@ -47,7 +47,7 @@ class MemberController extends Controller
                             <td>'.$item->room_no.'</td>
                             <td>'.$item->name.'</td>
                             <td>'.$item->phone.'</td>
-                            <td>'.(($item->status) == 1 ? '<span class="badge badge-success">Stay</span>' : '<span class="badge badge-danger">Leave</span>').'</td>
+                            <td>'.(($item->status) == 1 ? '<span class="badge bg-success">Stay</span>' : '<span class="badge bg-danger">Leave</span>').'</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm edit" id="'.$item->id.'"><i class="fa fa-edit"
                                         aria-hidden="true"></i></a>
