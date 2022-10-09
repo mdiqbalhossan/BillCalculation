@@ -30,7 +30,8 @@ class DashboardController extends Controller
             'utility' => [
                 'collected' => number_format($utilityTotal,2, '.', ','),
                 'total' => number_format($this->totalCollectableMoney('utility'),2, '.', ','),
-                'due' => number_format($this->totalCollectableMoney('utility') - $utilityTotal,2, '.', ',')
+                'due' => number_format($this->totalCollectableMoney('utility') - $utilityTotal,2, '.', ','),
+                'adjust' => number_format($this->adjustBill(),2, '.', ',')
             ]
         ];
 
@@ -64,6 +65,13 @@ class DashboardController extends Controller
             }
             return Member::whereNotIn('id',$item)->where('isUtility',1)->get();
         }
+    }
+
+    public function adjustBill(){
+        $total_member = Member::where('isUtility',1)->where('isAdjust',1)->count();
+        $singleBill = $this->singleAmount("utility");
+        $totalAdjustBill = $total_member * $singleBill;
+        return $totalAdjustBill;
     }
     
 

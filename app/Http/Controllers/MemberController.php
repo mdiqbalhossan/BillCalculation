@@ -27,8 +27,8 @@ class MemberController extends Controller
                             <th style="width:15%;text-align:center;">Room No</th>
                             <th style="width:25%;text-align:center;">Name</th>
                             <th style="width:25%;text-align:center;">Phone</th>
-                            <th style="width:15%;text-align:center;">Status</th>
-                            <th style="width:20%;text-align:center;">Action</th>
+                            <th style="width:10%;text-align:center;">Status</th>
+                            <th style="width:25%;text-align:center;">Action</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -36,8 +36,8 @@ class MemberController extends Controller
                             <th style="width:15%;text-align:center;">Room No</th>
                             <th style="width:25%;text-align:center;">Name</th>
                             <th style="width:25%;text-align:center;">Phone</th>
-                            <th style="width:15%;text-align:center;">Status</th>
-                            <th style="width:20%;text-align:center;">Action</th>
+                            <th style="width:10%;text-align:center;">Status</th>
+                            <th style="width:25%;text-align:center;">Action</th>
                         </tr>
                     </tfoot>
                     <tbody>';

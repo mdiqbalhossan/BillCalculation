@@ -182,7 +182,7 @@
         <h1 class="heading-1">Utility Bill</h1>
         <div class="divider-1"> <span></span></div>
         <div class="row">
-            <div class="col-xl-4">
+            <div class="col-xl-3">
                 <div class="card border-start border-info border-4">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center mb-2">
@@ -202,7 +202,7 @@
                 </div>
                 <!--end card-->
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-3">
                 <div class="card border-start border-warning border-4">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center mb-2">
@@ -222,13 +222,33 @@
                 </div>
                 <!--end card-->
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-3">
                 <div class="card border-start border-danger border-4">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center mb-2">
                             <div class="col">
                                 <p class="text-danger mb-0 fw-bold">Due Fund</p>
                                 <h3 class="my-1 font-20 fw-bold">৳ {{ $total['utility']['due'] }}</h3>
+                            </div>
+                            <!--end col-->
+                            <div class="col-auto align-self-center">
+                                <img src="{{ asset('assets/icon/4.png') }}" class="thumb-lg" width="50px">
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end card-body-->
+                </div>
+                <!--end card-->
+            </div>
+            <div class="col-xl-3">
+                <div class="card border-start border-dark border-4">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center mb-2">
+                            <div class="col">
+                                <p class="text-danger mb-0 fw-bold">Adjust Fund</p>
+                                <h3 class="my-1 font-20 fw-bold">৳ {{ $total['utility']['adjust'] }}</h3>
                             </div>
                             <!--end col-->
                             <div class="col-auto align-self-center">
