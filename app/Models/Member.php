@@ -10,8 +10,8 @@ class Member extends Model
     use HasFactory;
     protected $fillable = ['name','phone','room_no','status','isUtility'];
 
-    public function getStatusAttribute(){
-        if($this->status == 1){
+    public function getStatusAttribute($value){
+        if($value == 1){
             $r = "<span class='badge badge-success'>Stay</span>";
             return $r;
         }else{
