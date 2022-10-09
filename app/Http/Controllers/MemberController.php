@@ -173,21 +173,33 @@ class MemberController extends Controller
         return response()->json(['status' => 200]);
     }
 
-    public function utilityUpdate($id)
+    public function utilityUpdate($id,$type)
     {
         $member = Member::find($id);
-        $member->update([
-            'isUtility' => 1
-        ]);
+        if($type == "able"){            
+            $member->update([
+                'isUtility' => 1
+            ]);
+        }elseif($type == "notable"){
+            $member->update([
+                'isUtility' => 0
+            ]);
+        }
         return response()->json(['status' => 200]);
     }
 
-    public function adjustUpdate($id)
+    public function adjustUpdate($id,$type)
     {
         $member = Member::find($id);
-        $member->update([
-            'isAdjust' => 1
-        ]);
+        if($type == "able"){            
+            $member->update([
+                'isAdjust' => 1
+            ]);
+        }elseif($type == "notable"){
+            $member->update([
+                'isAdjust' => 0
+            ]);
+        }
         return response()->json(['status' => 200]);
     }
 }

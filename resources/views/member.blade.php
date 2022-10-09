@@ -299,25 +299,48 @@
                 e.preventDefault();
                 let id = $(this).attr("id");
                 const my_id = id.split("_");
-                $.ajax({
-                type: "GET",
-                url: 'member/utility/'+my_id[1],
-                success: function (response) {
-                if(response.status == 200){
-                $.toast({
-                type: 'success',
-                title: 'Success',
-                subtitle: 'Member Status',
-                content: 'Member Utility Status Update Succesfully',
-                delay: 5000,
-                });
-                fetchData();
-                }
-                },
-                error: function(response){
+                if($(this).prop("checked") == true){
+                    $.ajax({
+                    type: "GET",
+                    url: 'member/utility/'+my_id[1]+'/able',
+                    success: function (response) {
+                    if(response.status == 200){
+                    $.toast({
+                    type: 'success',
+                    title: 'Success',
+                    subtitle: 'Member Status',
+                    content: 'Member Utility Status Update Succesfully',
+                    delay: 5000,
+                    });
+                    fetchData();
+                    }
+                    },
+                    error: function(response){
                     console.log(response);
+                    }
+                    });
+                }else{
+                    $.ajax({
+                    type: "GET",
+                    url: 'member/utility/'+my_id[1]+'/notable',
+                    success: function (response) {
+                    if(response.status == 200){
+                    $.toast({
+                    type: 'success',
+                    title: 'Success',
+                    subtitle: 'Member Status',
+                    content: 'Member Utility Status Update Succesfully',
+                    delay: 5000,
+                    });
+                    fetchData();
+                    }
+                    },
+                    error: function(response){
+                    console.log(response);
+                    }
+                    });
                 }
-                });
+                
                 console.log(my_id[1])
             });
 
@@ -326,25 +349,48 @@
             e.preventDefault();
             let id = $(this).attr("id");
             const my_id = id.split("_");
-            $.ajax({
-            type: "GET",
-            url: 'member/adjust/'+my_id[1],
-            success: function (response) {
-            if(response.status == 200){
-            $.toast({
-            type: 'success',
-            title: 'Success',
-            subtitle: 'Member Status',
-            content: 'Member Adjust Status Update Succesfully',
-            delay: 5000,
-            });
-            fetchData();
+            if($(this).prop("checked") == true){
+                $.ajax({
+                type: "GET",
+                url: 'member/adjust/'+my_id[1]+'/able',
+                success: function (response) {
+                if(response.status == 200){
+                $.toast({
+                type: 'success',
+                title: 'Success',
+                subtitle: 'Member Status',
+                content: 'Member Adjust Status Update Succesfully',
+                delay: 5000,
+                });
+                fetchData();
+                }
+                },
+                error: function(response){
+                console.log(response);
+                }
+                });
+            }else{
+                $.ajax({
+                type: "GET",
+                url: 'member/adjust/'+my_id[1]+'/notable',
+                success: function (response) {
+                if(response.status == 200){
+                $.toast({
+                type: 'success',
+                title: 'Success',
+                subtitle: 'Member Status',
+                content: 'Member Adjust Status Update Succesfully',
+                delay: 5000,
+                });
+                fetchData();
+                }
+                },
+                error: function(response){
+                console.log(response);
+                }
+                });
             }
-            },
-            error: function(response){
-            console.log(response);
-            }
-            });
+            
             console.log(my_id[1])
             });
         });
