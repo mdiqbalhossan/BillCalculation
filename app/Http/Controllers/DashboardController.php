@@ -62,18 +62,19 @@ class DashboardController extends Controller
             foreach($utility as $v){
                 array_push($item,$v->member_id);
             }
-            return Member::whereNotIn('id',$item)->where('status',1)->get();
+            return Member::whereNotIn('id',$item)->where('isUtility',1)->get();
         }
     }
     
 
 
 
-    public function totalCollectableMoney($type){
-        $total_member = Member::where('status',1)->count();
+    public function totalCollectableMoney($type){        
         if($type == "cooker"){
+            $total_member = Member::where('status',1)->count();
             return $total_member * $this->singleAmount("cooker");
         }else if($type == "utility"){
+            $total_member = Member::where('isUtility',1)->count();
             return $total_member * $this->singleAmount("utility");
         }
     }
