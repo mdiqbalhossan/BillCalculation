@@ -55,88 +55,6 @@
         background: #f27474;
         left: 20px;
     }
-
-    .switchToggle input[type=checkbox] {
-        height: 0;
-        width: 0;
-        visibility: hidden;
-        position: absolute;
-    }
-
-    .switchToggle label {
-        cursor: pointer;
-        text-indent: -9999px;
-        width: 70px;
-        max-width: 70px;
-        height: 30px;
-        background:
-            #d1d1d1;
-        display: block;
-        border-radius: 100px;
-        position: relative;
-    }
-
-    .switchToggle label:after {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 26px;
-        height: 26px;
-        background:
-            #fff;
-        border-radius: 90px;
-        transition: 0.3s;
-    }
-
-    .switchToggle input:checked+label,
-    .switchToggle input:checked+input+label {
-        background: #3e98d3;
-    }
-
-    .switchToggle input+label:before,
-    .switchToggle input+input+label:before {
-        content: 'No';
-        position: absolute;
-        top:
-            5px;
-        left: 35px;
-        width: 26px;
-        height: 26px;
-        border-radius: 90px;
-        transition: 0.3s;
-        text-indent: 0;
-        color: #fff;
-    }
-
-    .switchToggle input:checked+label:before,
-    .switchToggle input:checked+input+label:before {
-        content: 'Yes';
-        position: absolute;
-        top: 5px;
-        left: 10px;
-        width: 26px;
-        height: 26px;
-        border-radius: 90px;
-        transition: 0.3s;
-        text-indent:
-            0;
-        color: #fff;
-    }
-
-    .switchToggle input:checked+label:after,
-    .switchToggle input:checked+input+label:after {
-        left: calc(100% - 2px);
-        transform: translateX(-100%);
-    }
-
-    .switchToggle label:active:after {
-        width: 60px;
-    }
-
-    .toggle-switchArea {
-        margin: 10px 0 10px 0;
-    }
 </style>
 @endpush
 @section('content')
@@ -401,6 +319,33 @@
                 }
                 });
                 console.log(my_id[1])
+            });
+
+            // Adjust Status Update
+            $("body").on('change','.adjust_status',function (e) {
+            e.preventDefault();
+            let id = $(this).attr("id");
+            const my_id = id.split("_");
+            $.ajax({
+            type: "GET",
+            url: 'member/adjust/'+my_id[1],
+            success: function (response) {
+            if(response.status == 200){
+            $.toast({
+            type: 'success',
+            title: 'Success',
+            subtitle: 'Member Status',
+            content: 'Member Adjust Status Update Succesfully',
+            delay: 5000,
+            });
+            fetchData();
+            }
+            },
+            error: function(response){
+            console.log(response);
+            }
+            });
+            console.log(my_id[1])
             });
         });
 </script>

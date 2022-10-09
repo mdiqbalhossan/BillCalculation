@@ -24,20 +24,20 @@ class MemberController extends Controller
             $output .= '<table id="example" class="table table-sm table-striped table-bordered table-responsive" style="width:100%">
                     <thead>
                         <tr>
-                            <th style="width:80px;text-align:center;">Room No</th>
-                            <th style="width:170px;text-align:center;">Name</th>
-                            <th style="width:180px;text-align:center;">Phone</th>
-                            <th style="width:80px;text-align:center;">Status</th>
-                            <th style="text-align:center;">Action</th>
+                            <th style="width:15%;text-align:center;">Room No</th>
+                            <th style="width:25%;text-align:center;">Name</th>
+                            <th style="width:25%;text-align:center;">Phone</th>
+                            <th style="width:15%;text-align:center;">Status</th>
+                            <th style="width:20%;text-align:center;">Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th style="width:80px;text-align:center;">Room No</th>
-                            <th style="width:170px;text-align:center;">Name</th>
-                            <th style="width:180px;text-align:center;">Phone</th>
-                            <th style="width:80px;text-align:center;">Status</th>
-                            <th style="text-align:center;">Action</th>
+                            <th style="width:15%;text-align:center;">Room No</th>
+                            <th style="width:25%;text-align:center;">Name</th>
+                            <th style="width:25%;text-align:center;">Phone</th>
+                            <th style="width:15%;text-align:center;">Status</th>
+                            <th style="width:20%;text-align:center;">Action</th>
                         </tr>
                     </tfoot>
                     <tbody>';
@@ -178,6 +178,15 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member->update([
             'isUtility' => 1
+        ]);
+        return response()->json(['status' => 200]);
+    }
+
+    public function adjustUpdate($id)
+    {
+        $member = Member::find($id);
+        $member->update([
+            'isAdjust' => 1
         ]);
         return response()->json(['status' => 200]);
     }
