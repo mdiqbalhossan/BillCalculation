@@ -381,7 +381,7 @@
                         Adjusted Member
                     </div>
                     <div class="card-body">
-                        <table id="example1" class="table table-sm table-striped table-bordered table-responsive">
+                        <table id="example3" class="table table-sm table-striped table-bordered table-responsive">
                             <thead>
                                 <tr>
                                     <th>Room No</th>
@@ -421,6 +421,7 @@
             $('#example').DataTable();
             $('#example1').DataTable();
             $('#example2').DataTable();
+            $('#example3').DataTable();
         });
 </script>
 @endpush
