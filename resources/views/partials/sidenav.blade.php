@@ -29,6 +29,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-gear"></i></div>
                     Setting
                 </a>
+                <a class="nav-link" href="{{ route('download') }}">
+                    <div class="sb-nav-link-icon"><i class="fa fa-download"></i></div>
+                    Download
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">

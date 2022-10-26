@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CookerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PayCookerBillController;
 use App\Http\Controllers\SettingController;
@@ -25,6 +26,7 @@ Route::redirect('/', '/dashboard', 301);
 Route::get('/status', [StatusController::class, 'index'])->name('status');
 
 
+
 Auth::routes();
 
 
@@ -44,4 +46,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/fetch/pay/cooker/bill',[PayCookerBillController::class, 'fetch'])->name('cooker.pay.fetch');
     Route::get('/setting',[SettingController::class, 'index'])->name('setting');
     Route::post('/setting/update',[SettingController::class, 'update'])->name('setting.update');
+    Route::get('/download',[DownloadController::class, 'index'])->name('download');
+    Route::post('/download',[DownloadController::class, 'download'])->name('post.download');
 });
